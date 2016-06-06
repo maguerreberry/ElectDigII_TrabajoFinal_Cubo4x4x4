@@ -22,12 +22,12 @@ Configinicial	    ;-------Port  Config
 		    ;-------Interruption   Config
 		    movlw   b'10101000' ;interrumpo por TMR0 y RB4/RB7
 		    movwf   INTCON
-		    movlw   b'00000000' ;PS=2
+		    movlw   b'00000011' ;PS=16
 		    movwf   OPTION_REG
 		    movlw   0xF0 ;Interrumpo por cambio en los pines RB4 a RB7
 		    movwf   IOCB
 		    ;-------ADC Config
-		    movlw   0x1F    ; RA0 va a ser para el canal de conversion, RA1 a RA4 van a ser usados para controlar la multiplexacion de los pisos del cubo
+		    movlw   0x01    ; RA0 va a ser para el canal de conversion, RA1 a RA4 van a ser usados para controlar la multiplexacion de los pisos del cubo
 		    movwf   TRISA
 		    banksel ANSEL
 		    movlw   0x01    ;usa el AN0 como unica entrada analogica
@@ -53,10 +53,11 @@ Inicio		    clrf    leds0_7
 		    clrf    piso1
 		    clrf    piso2
 		    clrf    piso3
+		    clrf    numPiso
 		    clrf    numTeclado
 		    clrf    brillo
 		    movlw   .6
-		    movwf   TMR0 ; Periodo TMR0 = 500 us
+		    movwf   TMR0 ; Periodo TMR0 = 4 ms, ver Prescaler
 Loop		    nop
 		    goto    Loop
 		    
@@ -65,5 +66,78 @@ Interruption	    btfsc   INTCON,T0IF
 		    goto    InterrRBIE
 Volver		    retfie
 		    
-InterrTMR0	    bcf	    INTCON,T0IF
+InterrTMR0	    bcf	    INTCON,T0IF ;cada 4 ms cambiamos de piso
+		    call    SelectSeq
+		    call    SelectBrillo
+		    goto    Volver
+		    
+SelectBrillo	    bsf	    ADCON0,1 ;comienza la conversion
+Loop1		    banksel ADCON0
+		    btfsc   ADCON0,1
+		    goto    Loop1
+		    banksel ADRESH
+		    btfsc   ADRESH,6
+		    goto    BrilloAlto 
+		    goto    BrilloBajo 		    
+		    		    	    
+SelectSeq	    movf    numTeclado
+		    addwf   PCL,f
+		    call    TodoON
+		    return
+		    call    MitadON
+		    return
+		    call    Piso1y3ON
+		    return
+		    
+TodoON		    ;Esta secuencia prende todo el cubo
+		    call    SelectPiso
+		    movwf   PORTA
+		    incf    numPiso,f
+		    movlw   .4
+		    xorwf   numPiso,w ; chequeo q no me pase de los 4 pisos 
+		    btfsc   STATUS,z
+		    clrf    numPiso
+		    movlw   0xFF
+		    movwf   PORTD
+		    movwf   PORTC
+		    return
+
+MitadON		    ;Esta secuencia prende la mitad del cubo
+		    call    SelectPiso
+		    movwf   PORTA
+		    incf    numPiso,f
+		    movlw   .4
+		    xorwf   numPiso,w ; chequeo q no me pase de los 4 pisos 
+		    btfsc   STATUS,z
+		    clrf    numPiso
+		    movlw   0xFF
+		    movwf   PORTD
+		    clrf    PORTC
+		    return
+
+Piso1y3ON	    ;Esta secuencia prende SOLO los pisos 1 y 3
+		    call    SelectPiso 
+		    movwf   PORTA
+		    incf    numPiso,f
+		    movlw   .4
+		    xorwf   numPiso,w ; chequeo q no me pase de los 4 pisos 
+		    btfsc   STATUS,z
+		    clrf    numPiso
+		    btfsc   numPiso,0
+		    goto    PisoPrendido
+		    goto    PisoApagado
+PisoPrendido	    movlw   0xFF
+		    movwf   PORTD
+		    movwf   PORTC
+		    goto    FinPiso1y3ON
+PisoApagado	    clrf    PORTD
+		    clrf    PORTC
+FinPiso1y3ON	    return		    
+		    
+SelectPiso	    movf    numPiso ; Selecciona el piso a prenderse
+		    addwf   PCL,f
+		    retlw   b'00000010' ; el RA0 es para el ADC
+		    retlw   b'00000100'
+		    retlw   b'00001000'
+		    retlw   b'00010000'
 		    
