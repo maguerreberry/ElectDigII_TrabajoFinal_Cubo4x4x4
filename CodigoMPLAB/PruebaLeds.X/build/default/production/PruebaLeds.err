@@ -1,0 +1,8 @@
+Warning[207] C:\USERS\MATTHEW\DESKTOP\PRUEBALEDS.X\PRUEBALEDS.ASM 11 : Found label after column 1. (led)
+Message[302] C:\USERS\MATTHEW\DESKTOP\PRUEBALEDS.X\PRUEBALEDS.ASM 20 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\PRUEBALEDS.X\PRUEBALEDS.ASM 21 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[202] C:\USERS\MATTHEW\DESKTOP\PRUEBALEDS.X\PRUEBALEDS.ASM 25 : Argument out of range.  Least significant bits used.
+Message[302] C:\USERS\MATTHEW\DESKTOP\PRUEBALEDS.X\PRUEBALEDS.ASM 26 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\PRUEBALEDS.X\PRUEBALEDS.ASM 28 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\PRUEBALEDS.X\PRUEBALEDS.ASM 30 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] C:\USERS\MATTHEW\DESKTOP\PRUEBALEDS.X\PRUEBALEDS.ASM 53 : Using default destination of 1 (file).
