@@ -8,64 +8,91 @@
 ; __config 0xFFFF
  __CONFIG _CONFIG2, _BOR4V_BOR40V & _WRT_OFF
  
-		    led	    equ	    0x20
+		    numPiso    equ    0x20
 		    org 0x00
 		    goto Inicio
 		    org 0x04
-		    goto Interruption
+		    goto ISR
 
 Inicio		    ;-------Port  Config
-		    banksel TRISB
-		    movlw   b'00000001' ; en el puerto B va el teclado, el pin RB0 no va a ser usado
-		    movwf   TRISB
+		    banksel TRISB ; en el puerto B va el teclado, el pin RB0 no va a ser usado
+		    clrf    TRISC
 		    clrf    TRISD
-		    ;-------Interruption   Config
-		    movlw   b'10010000' ;interrumpo por RB0
+		    clrf    TRISA
+		    movlw   b'10100000' ;interrumpo por TMR0
 		    movwf   INTCON
-		    movlw   b'100000111' ;ps=512
-		    movwf   OPTION_REG
+		    movlw   b'00000010' ;PS
+		    movwf   OPTION_REG		    
 		    banksel ANSEL
 		    clrf    ANSEL
 		    banksel ANSELH
-		    clrf    ANSELH
+		    clrf    ANSELH		    
 		    bcf	    STATUS, RP0 ; vuelvo al banco 0
 		    bcf	    STATUS, RP1
-		    clrf    PORTB
-		    movlw   0x03
-		    movwf   PORTD   
-	    	    clrf    led
-		    
-Loop		    nop
-		    goto    Loop
-		    
-Interruption	    btfsc   INTCON,INTF
-		    goto    InterrRB0
-Volver		    retfie
-
-InterrRB0	    bcf	INTCON, INTF
-		    movlw  .6
-		    movwf   TMR0   ;periodo 128 mseg
-Loop1		    btfss   INTCON,T0IF
+		    clrf    PORTA
+		    clrf    PORTC
+		    clrf    PORTD
+	    	    clrf    numPiso
+		    movlw   .6
+		    movwf   TMR0
+Loop1		    nop		    
 		    goto    Loop1
-		    bcf	    INTCON,T0IF
-		    call    qLed
-		    movwf   PORTD
-		    incf    led
-		    movlw   .8
-		    xorwf   led,w
-		    btfsc   STATUS,Z
-		    clrf    led
-		    goto    Volver
 		    
-qLed		    movf    led,w
+ISR		    btfss   INTCON,T0IF
+		    goto    Volver
+		    bcf	    INTCON,T0IF
+		    call    SelectPiso
+		    movwf   PORTC
+		    call    Secuencia
+		    call    TestPiso	
+		    movlw   .6
+		    movwf   TMR0
+Volver		    retfie
+		    
+QPiso		    movf    numPiso,w
 		    addwf   PCL,f
-		    retlw   b'00000001'
+		    retlw   .0
+		    retlw   .5
+		    retlw   .10
+		    retlw   .15
+		    
+Secuencia	    call    QPiso
+		    addwf   PCL,f
+		    movlw   b'10011111'
+		    movwf   PORTA
+		    movlw   b'11111001'
+		    movwf   PORTD
+		    return
+		    movlw   b'00001001'
+		    movwf   PORTA
+		    movlw   b'10010000'
+		    movwf   PORTD
+		    return
+		    movlw   b'00001001'
+		    movwf   PORTA
+		    movlw   b'10010000'
+		    movwf   PORTD
+		    return
+		    movlw   b'10011111'
+		    movwf   PORTA
+		    movlw   b'11111001'
+		    movwf   PORTD
+		    return
+    
+		    
+TestPiso	    incf    numPiso,f
+		    movlw   .4
+		    xorwf   numPiso,w ; chequeo q no me pase de los 4 pisos 
+		    btfsc   STATUS,Z
+		    clrf    numPiso
+		    return
+		    		    
+		    
+SelectPiso	    movf    numPiso,w ; Selecciona el piso a prenderse
+		    addwf   PCL,f
+		    retlw   b'00000001' 
 		    retlw   b'00000010'
 		    retlw   b'00000100'
 		    retlw   b'00001000'
-		    retlw   b'00010000'
-		    retlw   b'00100000'
-		    retlw   b'01000000'
-		    retlw   b'10000000'
-		    
+
 		    end

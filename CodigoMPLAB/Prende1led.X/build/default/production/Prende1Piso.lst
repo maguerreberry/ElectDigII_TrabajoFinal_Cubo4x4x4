@@ -1,4 +1,4 @@
-MPASM 5.66                    PRUEBALEDS.ASM   6-13-2016  18:58:36         PAGE  1
+MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  14:58:32         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -25,114 +25,33 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00008 ; __config 0xFFFF
 2008   3FFF           00009  __CONFIG _CONFIG2, _BOR4V_BOR40V & _WRT_OFF
                       00010  
-Warning[207]: Found label after column 1. (numPiso)
-  00000020            00011                     numPiso    equ    0x20
-                      00012                     org 0x00
-0000   2???           00013                     goto Inicio
-                      00014                     org 0x04
-0004   2???           00015                     goto ISR
-                      00016 
-0005                  00017 Inicio              ;-------Port  Config
-0005   1683 1303      00018                     banksel TRISB ; en el puerto B va el teclado, el pin RB0 no va a ser usado
+                      00011                     org 0x00
+0000   2???           00012                     goto Inicio
+                      00013                     
+0001                  00014 Inicio              ;-------Port  Config
+0001   1683 1303      00015                     banksel TRISB ; en el puerto B va el teclado, el pin RB0 no va a ser usado
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0007   0187           00019                     clrf    TRISC
+0003   0187           00016                     clrf    TRISC
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0008   0188           00020                     clrf    TRISD
+0004   0188           00017                     clrf    TRISD
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0009   0185           00021                     clrf    TRISA
-000A   30A0           00022                     movlw   b'10100000' ;interrumpo por TMR0
-000B   008B           00023                     movwf   INTCON
-000C   3002           00024                     movlw   b'00000010' ;PS
+0005   0185           00018                     clrf    TRISA           
+0006   1683 1703      00019                     banksel ANSEL
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-000D   0081           00025                     movwf   OPTION_REG              
-000E   1683 1703      00026                     banksel ANSEL
+0008   0188           00020                     clrf    ANSEL
+0009   1683 1703      00021                     banksel ANSELH
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0010   0188           00027                     clrf    ANSEL
-0011   1683 1703      00028                     banksel ANSELH
-Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0013   0189           00029                     clrf    ANSELH                  
-0014   1283           00030                     bcf     STATUS, RP0 ; vuelvo al banco 0
-0015   1303           00031                     bcf     STATUS, RP1
-0016   0185           00032                     clrf    PORTA
-0017   0187           00033                     clrf    PORTC
-0018   0188           00034                     clrf    PORTD
-0019   01A0           00035                     clrf    numPiso
-MPASM 5.66                    PRUEBALEDS.ASM   6-13-2016  18:58:36         PAGE  2
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
-001A   3006           00036                     movlw   .6
-001B   0081           00037                     movwf   TMR0
-001C   0000           00038 Loop1               nop             
-001D   2???           00039                     goto    Loop1
-                      00040                     
-001E   1D0B           00041 ISR                 btfss   INTCON,T0IF
-001F   2???           00042                     goto    Volver
-0020   110B           00043                     bcf     INTCON,T0IF
-0021   2???           00044                     call    SelectPiso
-0022   0087           00045                     movwf   PORTC
-0023   2???           00046                     call    Secuencia
-0024   2???           00047                     call    TestPiso    
-0025   3006           00048                     movlw   .6
-0026   0081           00049                     movwf   TMR0
-0027   0009           00050 Volver              retfie
-                      00051                     
-0028   0820           00052 QPiso               movf    numPiso,w
-0029   0782           00053                     addwf   PCL,f
-002A   3400           00054                     retlw   .0
-002B   3405           00055                     retlw   .5
-002C   340A           00056                     retlw   .10
-002D   340F           00057                     retlw   .15
-                      00058                     
-002E   2???           00059 Secuencia           call    QPiso
-002F   0782           00060                     addwf   PCL,f
-0030   309F           00061                     movlw   b'10011111'
-0031   0085           00062                     movwf   PORTA
-0032   30F9           00063                     movlw   b'11111001'
-0033   0088           00064                     movwf   PORTD
-0034   0008           00065                     return
-0035   3009           00066                     movlw   b'00001001'
-0036   0085           00067                     movwf   PORTA
-0037   3090           00068                     movlw   b'10010000'
-0038   0088           00069                     movwf   PORTD
-0039   0008           00070                     return
-003A   3009           00071                     movlw   b'00001001'
-003B   0085           00072                     movwf   PORTA
-003C   3090           00073                     movlw   b'10010000'
-003D   0088           00074                     movwf   PORTD
-003E   0008           00075                     return
-003F   309F           00076                     movlw   b'10011111'
-0040   0085           00077                     movwf   PORTA
-0041   30F9           00078                     movlw   b'11111001'
-0042   0088           00079                     movwf   PORTD
-0043   0008           00080                     return
-                      00081     
-                      00082                     
-0044   0AA0           00083 TestPiso            incf    numPiso,f
-0045   3004           00084                     movlw   .4
-0046   0620           00085                     xorwf   numPiso,w ; chequeo q no me pase de los 4 pisos 
-0047   1903           00086                     btfsc   STATUS,Z
-0048   01A0           00087                     clrf    numPiso
-0049   0008           00088                     return
-MPASM 5.66                    PRUEBALEDS.ASM   6-13-2016  18:58:36         PAGE  3
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
-                      00089                                     
-                      00090                     
-004A   0820           00091 SelectPiso          movf    numPiso,w ; Selecciona el piso a prenderse
-004B   0782           00092                     addwf   PCL,f
-004C   3401           00093                     retlw   b'00000001' 
-004D   3402           00094                     retlw   b'00000010'
-004E   3404           00095                     retlw   b'00000100'
-004F   3408           00096                     retlw   b'00001000'
-                      00097 
-2FF4 3FFF             00098                     end
-MPASM 5.66                    PRUEBALEDS.ASM   6-13-2016  18:58:36         PAGE  4
+000B   0189           00022                     clrf    ANSELH                  
+000C   1283           00023                     bcf     STATUS, RP0 ; vuelvo al banco 0
+000D   1303           00024                     bcf     STATUS, RP1
+000E   30FF           00025                     movlw   0xFF
+000F   0085           00026                     movwf   PORTA
+0010   0088           00027                     movwf   PORTD
+0011   0187           00028                     clrf    PORTC
+0012   1587           00029                     bsf     PORTC,3
+0013   2???           00030                     goto    $
+2FF4 3FFF             00031                     end
+MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  14:58:32         PAGE  2
 
 
 SYMBOL TABLE
@@ -191,7 +110,7 @@ BRG6                              00000006
 BRG7                              00000007
 BRG8                              00000000
 BRG9                              00000001
-MPASM 5.66                    PRUEBALEDS.ASM   6-13-2016  18:58:36         PAGE  5
+MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  14:58:32         PAGE  3
 
 
 SYMBOL TABLE
@@ -250,7 +169,7 @@ CHS0                              00000002
 CHS1                              00000003
 CHS2                              00000004
 CHS3                              00000005
-MPASM 5.66                    PRUEBALEDS.ASM   6-13-2016  18:58:36         PAGE  6
+MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  14:58:32         PAGE  4
 
 
 SYMBOL TABLE
@@ -309,7 +228,7 @@ INTF                              00000001
 IOCB                              00000096
 IOCB0                             00000000
 IOCB1                             00000001
-MPASM 5.66                    PRUEBALEDS.ASM   6-13-2016  18:58:36         PAGE  7
+MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  14:58:32         PAGE  5
 
 
 SYMBOL TABLE
@@ -325,10 +244,8 @@ IRCF0                             00000004
 IRCF1                             00000005
 IRCF2                             00000006
 IRP                               00000007
-ISR                               0000001E
-Inicio                            00000005
+Inicio                            00000001
 LTS                               00000001
-Loop1                             0000001C
 MC1OUT                            00000007
 MC2OUT                            00000006
 MSK                               00000093
@@ -368,14 +285,14 @@ PCL                               00000002
 PCLATH                            0000000A
 PCON                              0000008E
 PDC0                              00000000
-MPASM 5.66                    PRUEBALEDS.ASM   6-13-2016  18:58:36         PAGE  8
+PDC1                              00000001
+PDC2                              00000002
+MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  14:58:32         PAGE  6
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-PDC1                              00000001
-PDC2                              00000002
 PDC3                              00000003
 PDC4                              00000004
 PDC5                              00000005
@@ -405,7 +322,6 @@ PSTRCON                           0000009D
 PULSR                             00000002
 PULSS                             00000003
 PWM1CON                           0000009B
-QPiso                             00000028
 R                                 00000002
 RA0                               00000000
 RA1                               00000001
@@ -427,15 +343,15 @@ RBIE                              00000003
 RBIF                              00000000
 RC0                               00000000
 RC1                               00000001
-MPASM 5.66                    PRUEBALEDS.ASM   6-13-2016  18:58:36         PAGE  9
+RC2                               00000002
+RC3                               00000003
+RC4                               00000004
+MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  14:58:32         PAGE  7
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-RC2                               00000002
-RC3                               00000003
-RC4                               00000004
 RC5                               00000005
 RC6                               00000006
 RC7                               00000007
@@ -486,15 +402,15 @@ SREN                              00000005
 SSPADD                            00000093
 SSPBUF                            00000013
 SSPCON                            00000014
-MPASM 5.66                    PRUEBALEDS.ASM   6-13-2016  18:58:36         PAGE 10
+SSPCON2                           00000091
+SSPEN                             00000005
+SSPIE                             00000003
+MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  14:58:32         PAGE  8
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-SSPCON2                           00000091
-SSPEN                             00000005
-SSPIE                             00000003
 SSPIF                             00000003
 SSPM0                             00000000
 SSPM1                             00000001
@@ -511,8 +427,6 @@ STRD                              00000003
 STRSYNC                           00000004
 SWDTEN                            00000000
 SYNC                              00000004
-Secuencia                         0000002E
-SelectPiso                        0000004A
 T0CS                              00000005
 T0IE                              00000005
 T0IF                              00000002
@@ -545,17 +459,17 @@ TMR2IE                            00000001
 TMR2IF                            00000001
 TMR2ON                            00000002
 TOUTPS0                           00000003
-MPASM 5.66                    PRUEBALEDS.ASM   6-13-2016  18:58:36         PAGE 11
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 TOUTPS1                           00000004
 TOUTPS2                           00000005
 TOUTPS3                           00000006
 TRISA                             00000085
 TRISA0                            00000000
+MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  14:58:32         PAGE  9
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 TRISA1                            00000001
 TRISA2                            00000002
 TRISA3                            00000003
@@ -604,19 +518,18 @@ TUN4                              00000004
 TX8_9                             00000006
 TX9                               00000006
 TX9D                              00000000
-MPASM 5.66                    PRUEBALEDS.ASM   6-13-2016  18:58:36         PAGE 12
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 TXD8                              00000000
 TXEN                              00000005
 TXIE                              00000004
 TXIF                              00000004
 TXREG                             00000019
+MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  14:58:32         PAGE 10
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 TXSTA                             00000098
-TestPiso                          00000044
 UA                                00000001
 ULPWUE                            00000005
 ULPWUIE                           00000002
@@ -632,7 +545,6 @@ VREN                              00000007
 VROE                              00000006
 VRR                               00000005
 VRSS                              00000004
-Volver                            00000027
 W                                 00000000
 WCOL                              00000007
 WDTCON                            00000105
@@ -654,6 +566,7 @@ WREN                              00000002
 WRERR                             00000003
 WUE                               00000001
 Z                                 00000002
+_.org_0_0013                      00000013
 _BOR21V                           00003EFF
 _BOR40V                           00003FFF
 _BOR4V_BOR21V                     00003EFF
@@ -663,18 +576,18 @@ _BOREN_OFF                        00003CFF
 _BOREN_ON                         00003FFF
 _BOREN_SBODEN                     00003DFF
 _BOR_NSLEEP                       00003EFF
-MPASM 5.66                    PRUEBALEDS.ASM   6-13-2016  18:58:36         PAGE 13
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 _BOR_OFF                          00003CFF
 _BOR_ON                           00003FFF
 _BOR_SBODEN                       00003DFF
 _CONFIG1                          00002007
 _CONFIG2                          00002008
 _CPD_OFF                          00003FFF
+MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  14:58:32         PAGE 11
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 _CPD_ON                           00003F7F
 _CP_OFF                           00003FFF
 _CP_ON                            00003FBF
@@ -722,18 +635,17 @@ _WRT_1FOURTH                      00003BFF
 _WRT_256                          00003DFF
 _WRT_HALF                         000039FF
 _WRT_OFF                          00003FFF
-MPASM 5.66                    PRUEBALEDS.ASM   6-13-2016  18:58:36         PAGE 14
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 _XT_OSC                           00003FF9
 __16F887                          00000001
-numPiso                           00000020
+
+MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  14:58:32         PAGE 12
+
+
+
+
 
 Errors   :     0
-Warnings :     1 reported,     0 suppressed
-Messages :     6 reported,     0 suppressed
+Warnings :     0 reported,     0 suppressed
+Messages :     5 reported,     0 suppressed
 
 
