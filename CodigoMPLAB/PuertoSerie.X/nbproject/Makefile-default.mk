@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Puertoserie.asm
+SOURCEFILES_QUOTED_IF_SPACED=RX.asm
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Puertoserie.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/Puertoserie.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/RX.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/RX.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Puertoserie.o
+OBJECTFILES=${OBJECTDIR}/RX.o
 
 # Source Files
-SOURCEFILES=Puertoserie.asm
+SOURCEFILES=RX.asm
 
 
 CFLAGS=
@@ -82,22 +82,22 @@ MP_LINKER_DEBUG_OPTION=
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/Puertoserie.o: Puertoserie.asm  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/RX.o: RX.asm  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Puertoserie.o.d 
-	@${RM} ${OBJECTDIR}/Puertoserie.o 
-	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/Puertoserie.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -d__DEBUG -d__MPLAB_DEBUGGER_SIMULATOR=1 -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/Puertoserie.lst\" -e\"${OBJECTDIR}/Puertoserie.err\" $(ASM_OPTIONS)   -o\"${OBJECTDIR}/Puertoserie.o\" \"Puertoserie.asm\" 
-	@${DEP_GEN} -d "${OBJECTDIR}/Puertoserie.o"
-	@${FIXDEPS} "${OBJECTDIR}/Puertoserie.o.d" $(SILENT) -rsi ${MP_AS_DIR} -c18 
+	@${RM} ${OBJECTDIR}/RX.o.d 
+	@${RM} ${OBJECTDIR}/RX.o 
+	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/RX.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -d__DEBUG -d__MPLAB_DEBUGGER_SIMULATOR=1 -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/RX.lst\" -e\"${OBJECTDIR}/RX.err\" $(ASM_OPTIONS)   -o\"${OBJECTDIR}/RX.o\" \"RX.asm\" 
+	@${DEP_GEN} -d "${OBJECTDIR}/RX.o"
+	@${FIXDEPS} "${OBJECTDIR}/RX.o.d" $(SILENT) -rsi ${MP_AS_DIR} -c18 
 	
 else
-${OBJECTDIR}/Puertoserie.o: Puertoserie.asm  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/RX.o: RX.asm  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Puertoserie.o.d 
-	@${RM} ${OBJECTDIR}/Puertoserie.o 
-	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/Puertoserie.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/Puertoserie.lst\" -e\"${OBJECTDIR}/Puertoserie.err\" $(ASM_OPTIONS)   -o\"${OBJECTDIR}/Puertoserie.o\" \"Puertoserie.asm\" 
-	@${DEP_GEN} -d "${OBJECTDIR}/Puertoserie.o"
-	@${FIXDEPS} "${OBJECTDIR}/Puertoserie.o.d" $(SILENT) -rsi ${MP_AS_DIR} -c18 
+	@${RM} ${OBJECTDIR}/RX.o.d 
+	@${RM} ${OBJECTDIR}/RX.o 
+	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/RX.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/RX.lst\" -e\"${OBJECTDIR}/RX.err\" $(ASM_OPTIONS)   -o\"${OBJECTDIR}/RX.o\" \"RX.asm\" 
+	@${DEP_GEN} -d "${OBJECTDIR}/RX.o"
+	@${FIXDEPS} "${OBJECTDIR}/RX.o.d" $(SILENT) -rsi ${MP_AS_DIR} -c18 
 	
 endif
 

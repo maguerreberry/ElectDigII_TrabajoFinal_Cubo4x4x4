@@ -1,12 +1,14 @@
-MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  15:48:44         PAGE  1
+MPASM 5.66                            RX.ASM   6-14-2016  17:18:23         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
                       00001 ; PIC16F887 Configuration Bit Settings
-                      00002 ; ASM source line config statements
-                      00003 #include "p16F887.inc"
+                      00002 
+                      00003 ; ASM source line config statements
+                      00004 
+                      00005 #include "p16F887.inc"
                       00001         LIST
                       00002 
                       00003 ;==========================================================================
@@ -17,41 +19,91 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00008 ;==========================================================================
                       00009 
                       00810         LIST
-                      00004 ; CONFIG1
-                      00005 ; __config 0xFFF5
-2007   2FF4           00006  __CONFIG _CONFIG1, _FOSC_INTRC_NOCLKOUT & _WDTE_OFF & _PWRTE_OFF & _MCLRE_ON & _CP_OFF & _CPD_OFF & _BO
+                      00006 
+                      00007 ; CONFIG1
+                      00008 ; __config 0xEFF4
+2007   2FF4           00009  __CONFIG _CONFIG1, _FOSC_INTRC_NOCLKOUT & _WDTE_OFF & _PWRTE_OFF & _MCLRE_ON & _CP_OFF & _CPD_OFF & _BO
                             REN_ON & _IESO_ON & _FCMEN_ON & _LVP_OFF
-                      00007 ; CONFIG2
-                      00008 ; __config 0xFFFF
-2008   3FFF           00009  __CONFIG _CONFIG2, _BOR4V_BOR40V & _WRT_OFF
-                      00010  
-                      00011                     org 0x00
-0000   2???           00012                     goto Inicio
-                      00013                     
-0001                  00014 Inicio              ;-------Port  Config
-0001   1683 1303      00015                     banksel TRISB ; en el puerto B va el teclado, el pin RB0 no va a ser usado
+                      00010 ; CONFIG2
+                      00011 ; __config 0xFFFF
+2008   3FFF           00012  __CONFIG _CONFIG2, _BOR4V_BOR40V & _WRT_OFF
+                      00013 
+                      00014  udata 0x22
+Warning[207]: Found label after column 1. (PORT)
+0022                  00015  PORT res 1
+Warning[207]: Found label after column 1. (DATO)
+0023                  00016  DATO res 1
+Warning[207]: Found label after column 1. (ERR_F)
+0024                  00017  ERR_F res 1
+Warning[207]: Found label after column 1. (ERR_OR)
+0025                  00018  ERR_OR res 1
+                      00019     ORG 0x00
+0000   2???           00020  GOTO   INICIO
+                      00021  ;   ORG        0x04
+                      00022 ; GOTO  ISR
+0001                  00023 INICIO:                         ;-----------------BANK0
+0001   1683           00024  BSF    STATUS,RP0      ;-----------------BANK1
+0002   3000           00025  MOVLW  b'00000000'     ;Ver SENDB
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0003   0187           00016                     clrf    TRISC
+0003   0098           00026  MOVWF  TXSTA
+0004   3019           00027  MOVLW  .25             ;Elijo velocidad de transmsion de 2400 baudios
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0004   0188           00017                     clrf    TRISD
+0005   0099           00028  MOVWF  SPBRG
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0005   0185           00018                     clrf    TRISA           
-0006   1683 1703      00019                     banksel ANSEL
+0006   0187           00029  CLRF   TRISC   
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0008   0188           00020                     clrf    ANSEL
-0009   1683 1703      00021                     banksel ANSELH
+0007   0185           00030  CLRF   TRISA
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-000B   0189           00022                     clrf    ANSELH                  
-000C   1283           00023                     bcf     STATUS, RP0 ; vuelvo al banco 0
-000D   1303           00024                     bcf     STATUS, RP1
-000E   30FF           00025                     movlw   0xFF
-000F   0085           00026                     movwf   PORTA
-0010   0088           00027                     movwf   PORTD
-0011   0187           00028                     clrf    PORTC
-0012   1587           00029                     bsf     PORTC,3
-0013   2???           00030                     goto    $
-2FF4 3FFF             00031                     end
-MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  15:48:44         PAGE  2
+0008   0188           00031  CLRF   TRISD
+0009   1703           00032  BSF    STATUS,RP1      ;-----------------BANK3
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+MPASM 5.66                            RX.ASM   6-14-2016  17:18:23         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000A   1187           00033  BCF    BAUDCTL,BRG16
+000B   1283           00034  BCF    STATUS,RP0
+000C   1303           00035  BCF    STATUS,RP1      ;-----------------BANK0
+000D   3090           00036  MOVLW  b'10010000'
+000E   0098           00037  MOVWF  RCSTA
+000F   0187           00038  CLRF   PORTC
+0010   30FF           00039  movlw  0xff
+0011   0085           00040  movwf  PORTA
+0012   0088           00041  movwf  PORTD
+                      00042 
+0013                  00043 POLL: 
+0013   1898           00044  BTFSC  RCSTA,OERR
+0014   2???           00045  GOTO   ERR_O 
+0015   1E8C           00046  BTFSS  PIR1,RCIF
+0016   2???           00047  GOTO   POLL
+0017   1918           00048  BTFSC  RCSTA,FERR
+0018   0A??           00049  INCF   ERR_F,f
+0019   081A           00050  MOVF   RCREG,W
+001A   00??           00051  MOVWF  DATO
+001B   300F           00052  MOVLW  0x0F
+001C   05??           00053  ANDWF  DATO,F
+001D   2???           00054  call   TEST
+001E   0087           00055  MOVWF  PORTC
+001F   2???           00056  GOTO   POLL
+                      00057  
+0020                  00058 TEST:
+0020   08??           00059     movf    DATO,w
+0021   0782           00060     addwf   PCL,f
+0022   3401           00061     retlw   b'00000001'
+0023   3402           00062     retlw   b'00000010'
+0024   3404           00063     retlw   b'00000100'
+0025   3408           00064     retlw   b'00001000'
+                      00065      
+0026                  00066 ERR_O:
+0026   0A??           00067     INCF    ERR_OR,F
+0027   1218           00068     BCF     RCSTA,CREN
+0028   1618           00069     BSF     RCSTA,CREN
+0029   2???           00070     GOTO    POLL
+                      00071 
+2FF4 3FFF             00072     END
+MPASM 5.66                            RX.ASM   6-14-2016  17:18:23         PAGE  3
 
 
 SYMBOL TABLE
@@ -110,7 +162,7 @@ BRG6                              00000006
 BRG7                              00000007
 BRG8                              00000000
 BRG9                              00000001
-MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  15:48:44         PAGE  3
+MPASM 5.66                            RX.ASM   6-14-2016  17:18:23         PAGE  4
 
 
 SYMBOL TABLE
@@ -169,7 +221,7 @@ CHS0                              00000002
 CHS1                              00000003
 CHS2                              00000004
 CHS3                              00000005
-MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  15:48:44         PAGE  4
+MPASM 5.66                            RX.ASM   6-14-2016  17:18:23         PAGE  5
 
 
 SYMBOL TABLE
@@ -184,6 +236,7 @@ CREN                              00000004
 CSRC                              00000007
 D                                 00000005
 DATA_ADDRESS                      00000005
+DATO                              00000023
 DC                                00000001
 DC1B0                             00000004
 DC1B1                             00000005
@@ -206,6 +259,9 @@ EEDATH                            0000010E
 EEIE                              00000004
 EEIF                              00000004
 EEPGD                             00000007
+ERR_F                             00000024
+ERR_O                             00000026
+ERR_OR                            00000025
 F                                 00000001
 FERR                              00000002
 FSR                               00000004
@@ -221,19 +277,20 @@ I2C_READ                          00000002
 I2C_START                         00000003
 I2C_STOP                          00000004
 INDF                              00000000
+INICIO                            00000001
 INTCON                            0000000B
 INTE                              00000004
-INTEDG                            00000006
-INTF                              00000001
-IOCB                              00000096
-IOCB0                             00000000
-IOCB1                             00000001
-MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  15:48:44         PAGE  5
+MPASM 5.66                            RX.ASM   6-14-2016  17:18:23         PAGE  6
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+INTEDG                            00000006
+INTF                              00000001
+IOCB                              00000096
+IOCB0                             00000000
+IOCB1                             00000001
 IOCB2                             00000002
 IOCB3                             00000003
 IOCB4                             00000004
@@ -244,7 +301,6 @@ IRCF0                             00000004
 IRCF1                             00000005
 IRCF2                             00000006
 IRP                               00000007
-Inicio                            00000001
 LTS                               00000001
 MC1OUT                            00000007
 MC2OUT                            00000006
@@ -283,16 +339,16 @@ P1M0                              00000006
 P1M1                              00000007
 PCL                               00000002
 PCLATH                            0000000A
-PCON                              0000008E
-PDC0                              00000000
-PDC1                              00000001
-PDC2                              00000002
-MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  15:48:44         PAGE  6
+MPASM 5.66                            RX.ASM   6-14-2016  17:18:23         PAGE  7
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+PCON                              0000008E
+PDC0                              00000000
+PDC1                              00000001
+PDC2                              00000002
 PDC3                              00000003
 PDC4                              00000004
 PDC5                              00000005
@@ -303,6 +359,8 @@ PIE1                              0000008C
 PIE2                              0000008D
 PIR1                              0000000C
 PIR2                              0000000D
+POLL                              00000013
+PORT                              00000022
 PORTA                             00000005
 PORTB                             00000006
 PORTC                             00000007
@@ -340,18 +398,18 @@ RB5                               00000005
 RB6                               00000006
 RB7                               00000007
 RBIE                              00000003
+MPASM 5.66                            RX.ASM   6-14-2016  17:18:23         PAGE  8
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 RBIF                              00000000
 RC0                               00000000
 RC1                               00000001
 RC2                               00000002
 RC3                               00000003
 RC4                               00000004
-MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  15:48:44         PAGE  7
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 RC5                               00000005
 RC6                               00000006
 RC7                               00000007
@@ -399,18 +457,18 @@ SR0                               00000006
 SR1                               00000007
 SRCON                             00000185
 SREN                              00000005
+MPASM 5.66                            RX.ASM   6-14-2016  17:18:23         PAGE  9
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 SSPADD                            00000093
 SSPBUF                            00000013
 SSPCON                            00000014
 SSPCON2                           00000091
 SSPEN                             00000005
 SSPIE                             00000003
-MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  15:48:44         PAGE  8
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 SSPIF                             00000003
 SSPM0                             00000000
 SSPM1                             00000001
@@ -443,6 +501,7 @@ T1SYNC                            00000002
 T2CKPS0                           00000000
 T2CKPS1                           00000001
 T2CON                             00000012
+TEST                              00000020
 TMR0                              00000001
 TMR0IE                            00000005
 TMR0IF                            00000002
@@ -457,6 +516,12 @@ TMR1ON                            00000000
 TMR2                              00000011
 TMR2IE                            00000001
 TMR2IF                            00000001
+MPASM 5.66                            RX.ASM   6-14-2016  17:18:23         PAGE 10
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 TMR2ON                            00000002
 TOUTPS0                           00000003
 TOUTPS1                           00000004
@@ -464,12 +529,6 @@ TOUTPS2                           00000005
 TOUTPS3                           00000006
 TRISA                             00000085
 TRISA0                            00000000
-MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  15:48:44         PAGE  9
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 TRISA1                            00000001
 TRISA2                            00000002
 TRISA3                            00000003
@@ -516,6 +575,12 @@ TUN2                              00000002
 TUN3                              00000003
 TUN4                              00000004
 TX8_9                             00000006
+MPASM 5.66                            RX.ASM   6-14-2016  17:18:23         PAGE 11
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 TX9                               00000006
 TX9D                              00000000
 TXD8                              00000000
@@ -523,12 +588,6 @@ TXEN                              00000005
 TXIE                              00000004
 TXIF                              00000004
 TXREG                             00000019
-MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  15:48:44         PAGE 10
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 TXSTA                             00000098
 UA                                00000001
 ULPWUE                            00000005
@@ -566,7 +625,6 @@ WREN                              00000002
 WRERR                             00000003
 WUE                               00000001
 Z                                 00000002
-_.org_0_0013                      00000013
 _BOR21V                           00003EFF
 _BOR40V                           00003FFF
 _BOR4V_BOR21V                     00003EFF
@@ -576,18 +634,18 @@ _BOREN_OFF                        00003CFF
 _BOREN_ON                         00003FFF
 _BOREN_SBODEN                     00003DFF
 _BOR_NSLEEP                       00003EFF
+MPASM 5.66                            RX.ASM   6-14-2016  17:18:23         PAGE 12
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 _BOR_OFF                          00003CFF
 _BOR_ON                           00003FFF
 _BOR_SBODEN                       00003DFF
 _CONFIG1                          00002007
 _CONFIG2                          00002008
 _CPD_OFF                          00003FFF
-MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  15:48:44         PAGE 11
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 _CPD_ON                           00003F7F
 _CP_OFF                           00003FFF
 _CP_ON                            00003FBF
@@ -635,17 +693,19 @@ _WRT_1FOURTH                      00003BFF
 _WRT_256                          00003DFF
 _WRT_HALF                         000039FF
 _WRT_OFF                          00003FFF
+MPASM 5.66                            RX.ASM   6-14-2016  17:18:23         PAGE 13
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 _XT_OSC                           00003FF9
 __16F887                          00000001
-
-MPASM 5.66                   PRENDE1PISO.ASM   6-14-2016  15:48:44         PAGE 12
-
-
-
-
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
 
 Errors   :     0
-Warnings :     0 reported,     0 suppressed
-Messages :     5 reported,     0 suppressed
+Warnings :     4 reported,     0 suppressed
+Messages :     6 reported,     0 suppressed
 
 
