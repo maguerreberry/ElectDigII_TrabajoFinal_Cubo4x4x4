@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=ProyectoFinalCubo4x4x4.X
+PROJECTNAME=PruebaSecuenciaLed1x1.X
 
 # Active Configuration
 DEFAULTCONF=default
