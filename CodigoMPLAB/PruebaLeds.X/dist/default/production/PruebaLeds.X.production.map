@@ -1,12 +1,12 @@
 MPLINK 5.08, LINKER
-Linker Map File - Created Fri Jun 10 19:42:12 2016
+Linker Map File - Created Mon Jun 13 18:58:38 2016
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
                    .org_0       code   0x000000    program   0x000002
                    .cinit    romdata   0x000001    program   0x000004
-                   .org_1       code   0x000004    program   0x000066
+                   .org_1       code   0x000004    program   0x000098
 .config_2007_BUILD/DEFAULT/PRODUCTION/PRUEBAL       code   0x002007    program   0x000002
 .config_2008_BUILD/DEFAULT/PRODUCTION/PRUEBAL       code   0x002008    program   0x000002
 
@@ -16,22 +16,23 @@ Linker Map File - Created Fri Jun 10 19:42:12 2016
                                Start         End      
                            ---------   ---------      
                             0x000000    0x000002      
-                            0x000004    0x000036      
+                            0x000004    0x00004f      
                             0x002007    0x002008      
-            56 out of 8455 program addresses used, program memory utilization is 0%
+            81 out of 8455 program addresses used, program memory utilization is 0%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
+                      ISR   0x00001e    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
                    Inicio   0x000005    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
-                InterrRB0   0x00001f    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
-             Interruption   0x00001c    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
-                     Loop   0x00001a    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
-                    Loop1   0x000022    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
-                   Volver   0x00001e    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
-                     qLed   0x00002d    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
+                    Loop1   0x00001c    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
+                    QPiso   0x000028    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
+                Secuencia   0x00002e    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
+               SelectPiso   0x00004a    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
+                 TestPiso   0x000044    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
+                   Volver   0x000027    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
 
 
 
@@ -39,11 +40,12 @@ Linker Map File - Created Fri Jun 10 19:42:12 2016
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
                    Inicio   0x000005    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
-                     Loop   0x00001a    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
-             Interruption   0x00001c    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
-                   Volver   0x00001e    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
-                InterrRB0   0x00001f    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
-                    Loop1   0x000022    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
-                     qLed   0x00002d    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
+                    Loop1   0x00001c    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
+                      ISR   0x00001e    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
+                   Volver   0x000027    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
+                    QPiso   0x000028    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
+                Secuencia   0x00002e    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
+                 TestPiso   0x000044    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
+               SelectPiso   0x00004a    program     static C:\Users\MATTHEW\Desktop\PruebaLeds.X\PruebaLeds.asm
 
 

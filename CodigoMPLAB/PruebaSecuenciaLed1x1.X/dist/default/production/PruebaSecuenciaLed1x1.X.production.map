@@ -1,14 +1,15 @@
 MPLINK 5.08, LINKER
-Linker Map File - Created Mon Jun 13 17:20:52 2016
+Linker Map File - Created Tue Jun 14 18:17:12 2016
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
                    .org_0       code   0x000000    program   0x000002
                    .cinit    romdata   0x000001    program   0x000004
-                   .org_1       code   0x000004    program   0x000086
+                   .org_1       code   0x000004    program   0x000082
 .config_2007_BUILD/DEFAULT/PRODUCTION/PRUEBAS       code   0x002007    program   0x000002
 .config_2008_BUILD/DEFAULT/PRODUCTION/PRUEBAS       code   0x002008    program   0x000002
+                   .udata      udata   0x000020       data   0x000002
 
 
 
@@ -16,38 +17,36 @@ Linker Map File - Created Mon Jun 13 17:20:52 2016
                                Start         End      
                            ---------   ---------      
                             0x000000    0x000002      
-                            0x000004    0x000046      
+                            0x000004    0x000044      
                             0x002007    0x002008      
-            72 out of 8455 program addresses used, program memory utilization is 0%
+            70 out of 8455 program addresses used, program memory utilization is 0%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                    BUCLE   0x000022    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                CleanPiso   0x000045    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                      ISR   0x00001f    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                   Inicio   0x000005    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                    Loop1   0x00001d    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-              SelectLedOn   0x00003b    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-               SelectPiso   0x000035    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                   Volver   0x000034    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                    sigue   0x00002d    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                      ISR   0x00001f    program     static C:\Users\MATTHEW\Desktop\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                   Inicio   0x000005    program     static C:\Users\MATTHEW\Desktop\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                    Loop1   0x00001d    program     static C:\Users\MATTHEW\Desktop\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+              SelectLedOn   0x00003b    program     static C:\Users\MATTHEW\Desktop\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+               SelectPiso   0x000035    program     static C:\Users\MATTHEW\Desktop\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                   Volver   0x000032    program     static C:\Users\MATTHEW\Desktop\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                 contaLed   0x000021       data     static C:\Users\MATTHEW\Desktop\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                  numPiso   0x000020       data     static C:\Users\MATTHEW\Desktop\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
 
 
 
                               Symbols - Sorted by Address
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                   Inicio   0x000005    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                    Loop1   0x00001d    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                      ISR   0x00001f    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                    BUCLE   0x000022    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                    sigue   0x00002d    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                   Volver   0x000034    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-               SelectPiso   0x000035    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-              SelectLedOn   0x00003b    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                CleanPiso   0x000045    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                   Inicio   0x000005    program     static C:\Users\MATTHEW\Desktop\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                    Loop1   0x00001d    program     static C:\Users\MATTHEW\Desktop\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                      ISR   0x00001f    program     static C:\Users\MATTHEW\Desktop\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                   Volver   0x000032    program     static C:\Users\MATTHEW\Desktop\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+               SelectPiso   0x000035    program     static C:\Users\MATTHEW\Desktop\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+              SelectLedOn   0x00003b    program     static C:\Users\MATTHEW\Desktop\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                  numPiso   0x000020       data     static C:\Users\MATTHEW\Desktop\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                 contaLed   0x000021       data     static C:\Users\MATTHEW\Desktop\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
 
 

@@ -1,5 +1,5 @@
 MPLINK 5.08, LINKER
-Linker Map File - Created Mon Jun 13 17:23:07 2016
+Linker Map File - Created Tue Jun 14 17:44:14 2016
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -25,29 +25,29 @@ Linker Map File - Created Mon Jun 13 17:23:07 2016
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                    BUCLE   0x000022    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                CleanPiso   0x000045    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                      ISR   0x00001f    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                   Inicio   0x000005    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                    Loop1   0x00001d    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-              SelectLedOn   0x00003b    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-               SelectPiso   0x000035    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                   Volver   0x000034    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                    sigue   0x00002d    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                    BUCLE   0x000022    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                CleanPiso   0x000045    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                      ISR   0x00001f    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                   Inicio   0x000005    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                    Loop1   0x00001d    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+              SelectLedOn   0x00003b    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+               SelectPiso   0x000035    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                   Volver   0x000034    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                    sigue   0x00002d    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
 
 
 
                               Symbols - Sorted by Address
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                   Inicio   0x000005    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                    Loop1   0x00001d    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                      ISR   0x00001f    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                    BUCLE   0x000022    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                    sigue   0x00002d    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                   Volver   0x000034    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-               SelectPiso   0x000035    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-              SelectLedOn   0x00003b    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
-                CleanPiso   0x000045    program     static C:\Users\Guti\MPLABXProjects\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                   Inicio   0x000005    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                    Loop1   0x00001d    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                      ISR   0x00001f    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                    BUCLE   0x000022    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                    sigue   0x00002d    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                   Volver   0x000034    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+               SelectPiso   0x000035    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+              SelectLedOn   0x00003b    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
+                CleanPiso   0x000045    program     static D:\Matt\Facultad\4° Año\Electrónica Digital II\ElectDigII_TrabajoFinal_Cubo4x4x4\CodigoMPLAB\PruebaSecuenciaLed1x1.X\pruebaSecLed1x1.asm
 
 

@@ -7,9 +7,9 @@
 ; CONFIG2
 ; __config 0xFFFF
  __CONFIG _CONFIG2, _BOR4V_BOR40V & _WRT_OFF
- 
-		    numPiso    equ    0x20
-		    contaLed    equ    0x21
+		    udata	0x20
+		    numPiso	res 1
+		    contaLed    res 1
 		    org 0x00
 		    goto Inicio
 		    org 0x04
@@ -22,7 +22,7 @@ Inicio		    ;-------Port  Config
 		    clrf    TRISA
 		    movlw   b'10100000' ;interrumpo por TMR0
 		    movwf   INTCON
-		    movlw   b'00000100' ;PS=32
+		    movlw   b'00000111' ;PS=32
 		    movwf   OPTION_REG		    
 		    banksel ANSEL
 		    clrf    ANSEL
@@ -44,26 +44,25 @@ Loop1		    nop
 ISR		    btfss   INTCON,T0IF
 		    goto    Volver
 		    bcf	    INTCON,T0IF
-BUCLE		    call    SelectPiso
+		    call    SelectPiso
 		    movwf   PORTC
-		    incf    numPiso,f
 		    call    SelectLedOn
 		    movwf   PORTD
-		    movwf   PORTA
-		    
+		    movwf   PORTA		    
+		    incf    numPiso,f
 		    movlw   .4
 		    xorwf   numPiso,w ; chequeo q no me pase de los 4 pisos 
-		    btfsc   STATUS,Z
-		    goto    CleanPiso
-		    goto    BUCLE
-sigue		    incf    contaLed,f
+		    btfss   STATUS,Z
+		    goto    Volver
+		    clrf    numPiso
+		    incf    contaLed,f
 		    movlw   .8
 		    xorwf   contaLed,w
 		    btfsc   STATUS,Z
 		    clrf    contaLed
-		    movlw   .6
+Volver		    movlw   .6
 		    movwf   TMR0
-Volver		    retfie
+		    retfie
 		    
 SelectPiso	    movf    numPiso,w ; Selecciona el piso a prenderse
 		    addwf   PCL,f
@@ -83,11 +82,8 @@ SelectLedOn
 		    retlw   b'00100000'
 		    retlw   b'01000000'
 		    retlw   b'10000000'
-CleanPiso
-		    clrf    numPiso
-		    goto    sigue
+
 		    end
-		    
 		    
 		    
 		    

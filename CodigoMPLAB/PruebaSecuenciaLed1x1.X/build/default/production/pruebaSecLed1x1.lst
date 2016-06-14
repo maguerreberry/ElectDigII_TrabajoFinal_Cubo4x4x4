@@ -1,4 +1,4 @@
-MPASM 5.66               PRUEBASECLED1X1.ASM   6-13-2016  17:20:48         PAGE  1
+MPASM 5.66               PRUEBASECLED1X1.ASM   6-14-2016  18:17:10         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -24,11 +24,11 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00007 ; CONFIG2
                       00008 ; __config 0xFFFF
 2008   3FFF           00009  __CONFIG _CONFIG2, _BOR4V_BOR40V & _WRT_OFF
-                      00010  
+                      00010                     udata       0x20
 Warning[207]: Found label after column 1. (numPiso)
-  00000020            00011                     numPiso    equ    0x20
+0020                  00011                     numPiso     res 1
 Warning[207]: Found label after column 1. (contaLed)
-  00000021            00012                     contaLed    equ    0x21
+0021                  00012                     contaLed    res 1
                       00013                     org 0x00
 0000   2???           00014                     goto Inicio
                       00015                     org 0x04
@@ -44,7 +44,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 0009   0185           00022                     clrf    TRISA
 000A   30A0           00023                     movlw   b'10100000' ;interrumpo por TMR0
 000B   008B           00024                     movwf   INTCON
-000C   3004           00025                     movlw   b'00000100' ;PS=32
+000C   3007           00025                     movlw   b'00000111' ;PS=32
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
 000D   0081           00026                     movwf   OPTION_REG              
 000E   1683 1703      00027                     banksel ANSEL
@@ -57,15 +57,15 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 0015   1303           00032                     bcf     STATUS, RP1
 0016   0185           00033                     clrf    PORTA
 0017   0187           00034                     clrf    PORTC
-MPASM 5.66               PRUEBASECLED1X1.ASM   6-13-2016  17:20:48         PAGE  2
+MPASM 5.66               PRUEBASECLED1X1.ASM   6-14-2016  18:17:10         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
 0018   0188           00035                     clrf    PORTD
-0019   01A0           00036                     clrf    numPiso
-001A   01A1           00037                     clrf    contaLed
+0019   01??           00036                     clrf    numPiso
+001A   01??           00037                     clrf    contaLed
 001B   3006           00038                     movlw   .6
 001C   0081           00039                     movwf   TMR0
 001D   0000           00040 Loop1               nop
@@ -75,56 +75,47 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 001F   1D0B           00044 ISR                 btfss   INTCON,T0IF
 0020   2???           00045                     goto    Volver
 0021   110B           00046                     bcf     INTCON,T0IF
-0022   2???           00047 BUCLE               call    SelectPiso
+0022   2???           00047                     call    SelectPiso
 0023   0087           00048                     movwf   PORTC
-0024   0AA0           00049                     incf    numPiso,f
-0025   2???           00050                     call    SelectLedOn
-0026   0088           00051                     movwf   PORTD
-0027   0085           00052                     movwf   PORTA
-                      00053                     
-0028   3004           00054                     movlw   .4
-0029   0620           00055                     xorwf   numPiso,w ; chequeo q no me pase de los 4 pisos 
-002A   1903           00056                     btfsc   STATUS,Z
-002B   2???           00057                     goto    CleanPiso
-002C   2???           00058                     goto    BUCLE
-002D   0AA1           00059 sigue               incf    contaLed,f
-002E   3008           00060                     movlw   .8
-002F   0621           00061                     xorwf   contaLed,w
-0030   1903           00062                     btfsc   STATUS,Z
-0031   01A1           00063                     clrf    contaLed
-0032   3006           00064                     movlw   .6
-0033   0081           00065                     movwf   TMR0
-0034   0009           00066 Volver              retfie
-                      00067                     
-0035   0820           00068 SelectPiso          movf    numPiso,w ; Selecciona el piso a prenderse
-0036   0782           00069                     addwf   PCL,f
-0037   3401           00070                     retlw   b'00000001' 
-0038   3402           00071                     retlw   b'00000010'
-0039   3404           00072                     retlw   b'00000100'
-003A   3408           00073                     retlw   b'00001000'
-                      00074 
-003B                  00075 SelectLedOn
-003B   0821           00076                     movf    contaLed,w
-003C   0782           00077                     addwf   PCL,f
-003D   3401           00078                     retlw   b'00000001'
-003E   3402           00079                     retlw   b'00000010'
-003F   3404           00080                     retlw   b'00000100'
-0040   3408           00081                     retlw   b'00001000'
-0041   3410           00082                     retlw   b'00010000'
-0042   3420           00083                     retlw   b'00100000'
-0043   3440           00084                     retlw   b'01000000'
-0044   3480           00085                     retlw   b'10000000'
-0045                  00086 CleanPiso
-0045   01A0           00087                     clrf    numPiso
-MPASM 5.66               PRUEBASECLED1X1.ASM   6-13-2016  17:20:48         PAGE  3
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
-0046   2???           00088                     goto    sigue
-2FF4 3FFF             00089                     end
-MPASM 5.66               PRUEBASECLED1X1.ASM   6-13-2016  17:20:48         PAGE  4
+0024   2???           00049                     call    SelectLedOn
+0025   0088           00050                     movwf   PORTD
+0026   0085           00051                     movwf   PORTA                   
+0027   0A??           00052                     incf    numPiso,f
+0028   3004           00053                     movlw   .4
+0029   06??           00054                     xorwf   numPiso,w ; chequeo q no me pase de los 4 pisos 
+002A   1D03           00055                     btfss   STATUS,Z
+002B   2???           00056                     goto    Volver
+002C   01??           00057                     clrf    numPiso
+002D   0A??           00058                     incf    contaLed,f
+002E   3008           00059                     movlw   .8
+002F   06??           00060                     xorwf   contaLed,w
+0030   1903           00061                     btfsc   STATUS,Z
+0031   01??           00062                     clrf    contaLed
+0032   3006           00063 Volver              movlw   .6
+0033   0081           00064                     movwf   TMR0
+0034   0009           00065                     retfie
+                      00066                     
+0035   08??           00067 SelectPiso          movf    numPiso,w ; Selecciona el piso a prenderse
+0036   0782           00068                     addwf   PCL,f
+0037   3401           00069                     retlw   b'00000001' 
+0038   3402           00070                     retlw   b'00000010'
+0039   3404           00071                     retlw   b'00000100'
+003A   3408           00072                     retlw   b'00001000'
+                      00073 
+003B                  00074 SelectLedOn
+003B   08??           00075                     movf    contaLed,w
+003C   0782           00076                     addwf   PCL,f
+003D   3401           00077                     retlw   b'00000001'
+003E   3402           00078                     retlw   b'00000010'
+003F   3404           00079                     retlw   b'00000100'
+0040   3408           00080                     retlw   b'00001000'
+0041   3410           00081                     retlw   b'00010000'
+0042   3420           00082                     retlw   b'00100000'
+0043   3440           00083                     retlw   b'01000000'
+0044   3480           00084                     retlw   b'10000000'
+                      00085 
+2FF4 3FFF             00086                     end
+MPASM 5.66               PRUEBASECLED1X1.ASM   6-14-2016  18:17:10         PAGE  3
 
 
 SYMBOL TABLE
@@ -183,14 +174,13 @@ BRG6                              00000006
 BRG7                              00000007
 BRG8                              00000000
 BRG9                              00000001
-MPASM 5.66               PRUEBASECLED1X1.ASM   6-13-2016  17:20:48         PAGE  5
+MPASM 5.66               PRUEBASECLED1X1.ASM   6-14-2016  18:17:10         PAGE  4
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
 BRGH                              00000002
-BUCLE                             00000022
 C                                 00000000
 C1CH0                             00000000
 C1CH1                             00000001
@@ -242,13 +232,13 @@ CCPR2L                            0000001B
 CHS0                              00000002
 CHS1                              00000003
 CHS2                              00000004
-MPASM 5.66               PRUEBASECLED1X1.ASM   6-13-2016  17:20:48         PAGE  6
+CHS3                              00000005
+MPASM 5.66               PRUEBASECLED1X1.ASM   6-14-2016  18:17:10         PAGE  5
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-CHS3                              00000005
 CKE                               00000006
 CKP                               00000004
 CM1CON0                           00000107
@@ -256,7 +246,6 @@ CM2CON0                           00000108
 CM2CON1                           00000109
 CREN                              00000004
 CSRC                              00000007
-CleanPiso                         00000045
 D                                 00000005
 DATA_ADDRESS                      00000005
 DC                                00000001
@@ -301,14 +290,14 @@ INTE                              00000004
 INTEDG                            00000006
 INTF                              00000001
 IOCB                              00000096
-MPASM 5.66               PRUEBASECLED1X1.ASM   6-13-2016  17:20:48         PAGE  7
+IOCB0                             00000000
+IOCB1                             00000001
+MPASM 5.66               PRUEBASECLED1X1.ASM   6-14-2016  18:17:10         PAGE  6
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-IOCB0                             00000000
-IOCB1                             00000001
 IOCB2                             00000002
 IOCB3                             00000003
 IOCB4                             00000004
@@ -360,14 +349,14 @@ P1M0                              00000006
 P1M1                              00000007
 PCL                               00000002
 PCLATH                            0000000A
-MPASM 5.66               PRUEBASECLED1X1.ASM   6-13-2016  17:20:48         PAGE  8
+PCON                              0000008E
+PDC0                              00000000
+MPASM 5.66               PRUEBASECLED1X1.ASM   6-14-2016  18:17:10         PAGE  7
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-PCON                              0000008E
-PDC0                              00000000
 PDC1                              00000001
 PDC2                              00000002
 PDC3                              00000003
@@ -419,14 +408,14 @@ RB7                               00000007
 RBIE                              00000003
 RBIF                              00000000
 RC0                               00000000
-MPASM 5.66               PRUEBASECLED1X1.ASM   6-13-2016  17:20:48         PAGE  9
+RC1                               00000001
+RC2                               00000002
+MPASM 5.66               PRUEBASECLED1X1.ASM   6-14-2016  18:17:10         PAGE  8
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-RC1                               00000001
-RC2                               00000002
 RC3                               00000003
 RC4                               00000004
 RC5                               00000005
@@ -478,14 +467,14 @@ SRCON                             00000185
 SREN                              00000005
 SSPADD                            00000093
 SSPBUF                            00000013
-MPASM 5.66               PRUEBASECLED1X1.ASM   6-13-2016  17:20:48         PAGE 10
+SSPCON                            00000014
+SSPCON2                           00000091
+MPASM 5.66               PRUEBASECLED1X1.ASM   6-14-2016  18:17:10         PAGE  9
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-SSPCON                            00000014
-SSPCON2                           00000091
 SSPEN                             00000005
 SSPIE                             00000003
 SSPIF                             00000003
@@ -537,14 +526,14 @@ TMR2                              00000011
 TMR2IE                            00000001
 TMR2IF                            00000001
 TMR2ON                            00000002
-MPASM 5.66               PRUEBASECLED1X1.ASM   6-13-2016  17:20:48         PAGE 11
+TOUTPS0                           00000003
+TOUTPS1                           00000004
+MPASM 5.66               PRUEBASECLED1X1.ASM   6-14-2016  18:17:10         PAGE 10
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-TOUTPS0                           00000003
-TOUTPS1                           00000004
 TOUTPS2                           00000005
 TOUTPS3                           00000006
 TRISA                             00000085
@@ -596,14 +585,14 @@ TUN3                              00000003
 TUN4                              00000004
 TX8_9                             00000006
 TX9                               00000006
-MPASM 5.66               PRUEBASECLED1X1.ASM   6-13-2016  17:20:48         PAGE 12
+TX9D                              00000000
+TXD8                              00000000
+MPASM 5.66               PRUEBASECLED1X1.ASM   6-14-2016  18:17:10         PAGE 11
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-TX9D                              00000000
-TXD8                              00000000
 TXEN                              00000005
 TXIE                              00000004
 TXIF                              00000004
@@ -624,7 +613,7 @@ VREN                              00000007
 VROE                              00000006
 VRR                               00000005
 VRSS                              00000004
-Volver                            00000034
+Volver                            00000032
 W                                 00000000
 WCOL                              00000007
 WDTCON                            00000105
@@ -655,14 +644,14 @@ _BOREN_OFF                        00003CFF
 _BOREN_ON                         00003FFF
 _BOREN_SBODEN                     00003DFF
 _BOR_NSLEEP                       00003EFF
-MPASM 5.66               PRUEBASECLED1X1.ASM   6-13-2016  17:20:48         PAGE 13
+_BOR_OFF                          00003CFF
+_BOR_ON                           00003FFF
+MPASM 5.66               PRUEBASECLED1X1.ASM   6-14-2016  18:17:10         PAGE 12
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-_BOR_OFF                          00003CFF
-_BOR_ON                           00003FFF
 _BOR_SBODEN                       00003DFF
 _CONFIG1                          00002007
 _CONFIG2                          00002008
@@ -714,17 +703,16 @@ _WRT_1FOURTH                      00003BFF
 _WRT_256                          00003DFF
 _WRT_HALF                         000039FF
 _WRT_OFF                          00003FFF
-MPASM 5.66               PRUEBASECLED1X1.ASM   6-13-2016  17:20:48         PAGE 14
+_XT_OSC                           00003FF9
+__16F887                          00000001
+MPASM 5.66               PRUEBASECLED1X1.ASM   6-14-2016  18:17:10         PAGE 13
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-_XT_OSC                           00003FF9
-__16F887                          00000001
 contaLed                          00000021
 numPiso                           00000020
-sigue                             0000002D
 
 Errors   :     0
 Warnings :     2 reported,     0 suppressed
