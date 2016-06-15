@@ -1,0 +1,80 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Wed Jun 15 20:10:45 2016
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000001    program   0x000004
+                   .org_1       code   0x000004    program   0x000124
+.config_2007_BUILD/DEFAULT/DEBUG/SERIESECUENC       code   0x002007    program   0x000002
+.config_2008_BUILD/DEFAULT/DEBUG/SERIESECUENC       code   0x002008    program   0x000002
+                   .udata      udata   0x000022       data   0x000006
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000002      
+                            0x000004    0x000095      
+                            0x002007    0x002008      
+            151 out of 8455 program addresses used, program memory utilization is 1%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    ERR_O   0x000033    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                 GET_PISO   0x00004f    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+            GET_SECUENCIA   0x00005b    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                   INICIO   0x000005    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                      ISR   0x000045    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                    MEDIO   0x000091    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+               PRENDE_1x1   0x000069    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+         PRENDE_PERIMETRO   0x000081    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+         PRENDE_TODO_CUBO   0x000060    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+           PRIMERO_ULTIMO   0x00008c    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                RECEPCION   0x000029    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+            SELECT_LED_ON   0x000077    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                 SET_DATO   0x000037    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+              SET_NUMPISO   0x000055    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+            SET_SECUENCIA   0x000040    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                   VOLVER   0x00004c    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                 contaLed   0x000023       data     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                     dato   0x000024       data     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                    err_f   0x000025       data     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                   err_or   0x000026       data     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                  numPiso   0x000022       data     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                secuencia   0x000027       data     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   INICIO   0x000005    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                RECEPCION   0x000029    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                    ERR_O   0x000033    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                 SET_DATO   0x000037    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+            SET_SECUENCIA   0x000040    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                      ISR   0x000045    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                   VOLVER   0x00004c    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                 GET_PISO   0x00004f    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+              SET_NUMPISO   0x000055    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+            GET_SECUENCIA   0x00005b    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+         PRENDE_TODO_CUBO   0x000060    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+               PRENDE_1x1   0x000069    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+            SELECT_LED_ON   0x000077    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+         PRENDE_PERIMETRO   0x000081    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+           PRIMERO_ULTIMO   0x00008c    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                    MEDIO   0x000091    program     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                  numPiso   0x000022       data     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                 contaLed   0x000023       data     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                     dato   0x000024       data     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                    err_f   0x000025       data     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                   err_or   0x000026       data     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+                secuencia   0x000027       data     static C:\Users\MATTHEW\Desktop\Presentar15-6.X\SerieSecuencia15-6.asm
+
+
