@@ -52,9 +52,9 @@ ISR		    btfss   INTCON,T0IF
 		    movlw   0xFF
 		    movwf   PORTD
 		    movwf   PORTA
-		    movlw   .6
+Volver		    movlw   .6
 		    movwf   TMR0
-Volver		    retfie
+		    retfie
 		    
 SelectPiso	    movf    numPiso,w ; Selecciona el piso a prenderse
 		    addwf   PCL,f

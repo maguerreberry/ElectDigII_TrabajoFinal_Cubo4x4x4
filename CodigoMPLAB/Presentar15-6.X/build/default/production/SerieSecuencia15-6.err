@@ -1,0 +1,19 @@
+Warning[205] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 14 : Found directive in column 1. (udata)
+Warning[205] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 22 : Found directive in column 1. (org)
+Warning[203] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 23 : Found opcode in column 1. (goto)
+Warning[205] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 24 : Found directive in column 1. (org)
+Warning[203] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 25 : Found opcode in column 1. (goto)
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 30 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 31 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 32 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 36 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 38 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 40 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 50 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 52 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 54 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 148 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 158 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 184 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 208 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 227 : Register in operand not in bank 0.  Ensure that bank bits are correct.

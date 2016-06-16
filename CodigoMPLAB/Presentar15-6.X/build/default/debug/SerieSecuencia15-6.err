@@ -1,0 +1,18 @@
+Warning[205] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 14 : Found directive in column 1. (udata)
+Warning[205] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 21 : Found directive in column 1. (org)
+Warning[203] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 22 : Found opcode in column 1. (goto)
+Warning[205] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 23 : Found directive in column 1. (org)
+Warning[203] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 24 : Found opcode in column 1. (goto)
+Message[302] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 29 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 30 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 31 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 35 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 37 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 39 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 49 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 51 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 53 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 83 : Using default destination of 1 (file).
+Message[302] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 139 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 149 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\PRESENTAR15-6.X\SERIESECUENCIA15-6.ASM 175 : Register in operand not in bank 0.  Ensure that bank bits are correct.

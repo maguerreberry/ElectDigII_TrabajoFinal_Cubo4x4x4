@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Warning[207] C:\USERS\MATTHEW\DESKTOP\PRUEBALEDS.X\PRUEBALEDS.ASM 11 : Found label after column 1. (numPiso)
 Message[302] C:\USERS\MATTHEW\DESKTOP\PRUEBALEDS.X\PRUEBALEDS.ASM 19 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] C:\USERS\MATTHEW\DESKTOP\PRUEBALEDS.X\PRUEBALEDS.ASM 20 : Register in operand not in bank 0.  Ensure that bank bits are correct.
@@ -5,3 +6,12 @@ Message[302] C:\USERS\MATTHEW\DESKTOP\PRUEBALEDS.X\PRUEBALEDS.ASM 21 : Register 
 Message[302] C:\USERS\MATTHEW\DESKTOP\PRUEBALEDS.X\PRUEBALEDS.ASM 25 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] C:\USERS\MATTHEW\DESKTOP\PRUEBALEDS.X\PRUEBALEDS.ASM 27 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] C:\USERS\MATTHEW\DESKTOP\PRUEBALEDS.X\PRUEBALEDS.ASM 29 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+=======
+Warning[207] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRUEBALEDS.X\PRUEBALEDS.ASM 11 : Found label after column 1. (numPiso)
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRUEBALEDS.X\PRUEBALEDS.ASM 19 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRUEBALEDS.X\PRUEBALEDS.ASM 20 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRUEBALEDS.X\PRUEBALEDS.ASM 21 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRUEBALEDS.X\PRUEBALEDS.ASM 25 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRUEBALEDS.X\PRUEBALEDS.ASM 27 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PRUEBALEDS.X\PRUEBALEDS.ASM 29 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+>>>>>>> ramaMatt
