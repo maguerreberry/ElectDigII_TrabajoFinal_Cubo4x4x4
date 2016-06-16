@@ -15,9 +15,10 @@ udata	0x22
 numPiso	  res 1
 contaLed  res 1  	  
 dato	  res 1
-err_f	  res 1
 err_or 	  res 1
 secuencia res 1
+boliche_flag res 1
+veces_on  res 1
 org	 0x00
 goto	 INICIO
 org	 0x04
@@ -58,6 +59,12 @@ INICIO
 	clrf    PORTC
 	clrf    PORTD
 	clrf    numPiso
+	clrf    contaLed
+	clrf    dato
+	clrf	secuencia
+	clrf	err_or
+	clrf	boliche_flag
+	clrf	veces_on
         movlw   .6
 	movwf   TMR0
 		    
@@ -66,10 +73,10 @@ RECEPCION
 	goto	ERR_O 
 	btfss	PIR1,RCIF
 	goto	RECEPCION
-	btfsc	RCSTA,FERR
-	incf	err_f,f
 	movf	RCREG,w
-	movwf	dato
+	movwf	dato		
+	movlw	0x0F
+	andwf	dato,f ; Los datos son enviados en ASCII
 	call	SET_DATO	
 	goto	RECEPCION
 	
@@ -80,12 +87,10 @@ ERR_O:
 	goto    RECEPCION	
 
 SET_DATO: 
-	movf	dato
-        sublw	.2 ; Mis datos validos van entre 0 y 2 
+	movf	dato,w
+        sublw	.4 ; Mis datos validos van entre 0 y 2 	
 	btfss	STATUS,C
 	return
-	movlw	0x0F
-	andwf	dato,f ; Los datos son enviados en ASCII
 	call	SET_SECUENCIA
 	movwf   secuencia
 	return
@@ -96,16 +101,18 @@ SET_SECUENCIA:
         retlw   .0
 	retlw   .1
         retlw   .2
+	retlw	.3
+	retlw	.4
 	
 ISR:
 	btfss   INTCON,T0IF
 	goto    VOLVER
 	bcf	INTCON,T0IF
 	call    GET_PISO
-	movwf   PORTC
-	call	SET_NUMPISO
+	movwf   PORTC	
 	goto	GET_SECUENCIA	
 VOLVER	
+	call	SET_NUMPISO
 	movlw   .6
 	movwf   TMR0
 	retfie
@@ -132,6 +139,8 @@ GET_SECUENCIA
 	goto	PRENDE_TODO_CUBO
 	goto	PRENDE_1x1
 	goto	PRENDE_PERIMETRO
+	goto	PRENDE_COLUM
+	goto	PRENDE_BOLICHE
 	
 PRENDE_TODO_CUBO
 	banksel	OPTION_REG
@@ -192,5 +201,50 @@ MEDIO
         movlw   b'10010000'
         movwf   PORTD
 	goto	VOLVER
+	
+PRENDE_COLUM
+	banksel	OPTION_REG
+	movlw	b'10000111'; PS=128
+	movwf	OPTION_REG
+	bcf	STATUS,RP0
+	call    SELECT_LED_ON
+	movwf   PORTD
+	movwf   PORTA
+	movlw   .3
+	xorwf   numPiso,w 
+	btfss   STATUS,Z
+	goto    VOLVER
+	incf    contaLed,f
+        movlw   .8
+        xorwf   contaLed,w
+        btfsc   STATUS,Z
+        clrf    contaLed
+	goto	VOLVER
+	
+PRENDE_BOLICHE
+	banksel	OPTION_REG
+	movlw	b'10000011'; PS=16
+	movwf	OPTION_REG
+	bcf	STATUS,RP0
+	movlw   .3
+	xorwf   numPiso,w 
+	btfsc   STATUS,Z
+	incf	veces_on,f
+	call	SET_ON_OFF
+	movwf   PORTD
+	movwf   PORTA
+	goto	VOLVER
+SET_ON_OFF:	
+	movlw	.8
+	xorwf	veces_on,w
+	btfsc	STATUS,Z
+	clrf	veces_on
+	btfsc	STATUS,Z	
+	comf	boliche_flag,f
+	movlw   0xFF
+	btfss	boliche_flag,0
+	movlw	0x00
+	return
+	
 	
 	end

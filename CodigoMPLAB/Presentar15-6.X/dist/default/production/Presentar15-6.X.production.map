@@ -1,0 +1,88 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Thu Jun 16 14:31:40 2016
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000001    program   0x000004
+                   .org_1       code   0x000004    program   0x000186
+.config_2007_BUILD/DEFAULT/PRODUCTION/SERIESE       code   0x002007    program   0x000002
+.config_2008_BUILD/DEFAULT/PRODUCTION/SERIESE       code   0x002008    program   0x000002
+                   .udata      udata   0x000022       data   0x000007
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000002      
+                            0x000004    0x0000c6      
+                            0x002007    0x002008      
+            200 out of 8455 program addresses used, program memory utilization is 2%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    ERR_O   0x000039    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                 GET_PISO   0x000055    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+            GET_SECUENCIA   0x000061    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                   INICIO   0x000005    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                      ISR   0x00004b    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                    MEDIO   0x000099    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+               PRENDE_1x1   0x000071    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+           PRENDE_BOLICHE   0x0000b0    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+             PRENDE_COLUM   0x00009e    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+         PRENDE_PERIMETRO   0x000089    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+         PRENDE_TODO_CUBO   0x000068    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+           PRIMERO_ULTIMO   0x000094    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                RECEPCION   0x00002f    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+            SELECT_LED_ON   0x00007f    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                 SET_DATO   0x00003d    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+              SET_NUMPISO   0x00005b    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+               SET_ON_OFF   0x0000bd    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+            SET_SECUENCIA   0x000044    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                   VOLVER   0x000051    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+             boliche_flag   0x000027       data     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                 contaLed   0x000023       data     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                     dato   0x000024       data     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                   err_or   0x000025       data     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                  numPiso   0x000022       data     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                secuencia   0x000026       data     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                 veces_on   0x000028       data     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   INICIO   0x000005    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                RECEPCION   0x00002f    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                    ERR_O   0x000039    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                 SET_DATO   0x00003d    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+            SET_SECUENCIA   0x000044    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                      ISR   0x00004b    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                   VOLVER   0x000051    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                 GET_PISO   0x000055    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+              SET_NUMPISO   0x00005b    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+            GET_SECUENCIA   0x000061    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+         PRENDE_TODO_CUBO   0x000068    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+               PRENDE_1x1   0x000071    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+            SELECT_LED_ON   0x00007f    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+         PRENDE_PERIMETRO   0x000089    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+           PRIMERO_ULTIMO   0x000094    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                    MEDIO   0x000099    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+             PRENDE_COLUM   0x00009e    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+           PRENDE_BOLICHE   0x0000b0    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+               SET_ON_OFF   0x0000bd    program     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                  numPiso   0x000022       data     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                 contaLed   0x000023       data     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                     dato   0x000024       data     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                   err_or   0x000025       data     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                secuencia   0x000026       data     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+             boliche_flag   0x000027       data     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+                 veces_on   0x000028       data     static C:\Users\MATTHEW\Desktop\CodigoMPLAB\Presentar15-6.X\SerieSecuencia15-6.asm
+
+

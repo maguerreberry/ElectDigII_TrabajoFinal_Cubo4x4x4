@@ -1,10 +1,10 @@
-Warning[207] C:\USERS\MATTHEW\DESKTOP\PUERTOSERIE.X\RX.ASM 15 : Found label after column 1. (PORT)
-Warning[207] C:\USERS\MATTHEW\DESKTOP\PUERTOSERIE.X\RX.ASM 16 : Found label after column 1. (DATO)
-Warning[207] C:\USERS\MATTHEW\DESKTOP\PUERTOSERIE.X\RX.ASM 17 : Found label after column 1. (ERR_F)
-Warning[207] C:\USERS\MATTHEW\DESKTOP\PUERTOSERIE.X\RX.ASM 18 : Found label after column 1. (ERR_OR)
-Message[302] C:\USERS\MATTHEW\DESKTOP\PUERTOSERIE.X\RX.ASM 26 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\MATTHEW\DESKTOP\PUERTOSERIE.X\RX.ASM 28 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\MATTHEW\DESKTOP\PUERTOSERIE.X\RX.ASM 29 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\MATTHEW\DESKTOP\PUERTOSERIE.X\RX.ASM 30 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\MATTHEW\DESKTOP\PUERTOSERIE.X\RX.ASM 31 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\MATTHEW\DESKTOP\PUERTOSERIE.X\RX.ASM 33 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[207] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PUERTOSERIE.X\RX.ASM 15 : Found label after column 1. (PORT)
+Warning[207] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PUERTOSERIE.X\RX.ASM 16 : Found label after column 1. (DATO)
+Warning[207] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PUERTOSERIE.X\RX.ASM 17 : Found label after column 1. (ERR_F)
+Warning[207] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PUERTOSERIE.X\RX.ASM 18 : Found label after column 1. (ERR_OR)
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PUERTOSERIE.X\RX.ASM 26 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PUERTOSERIE.X\RX.ASM 28 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PUERTOSERIE.X\RX.ASM 29 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PUERTOSERIE.X\RX.ASM 30 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PUERTOSERIE.X\RX.ASM 31 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\MATTHEW\DESKTOP\CODIGOMPLAB\PUERTOSERIE.X\RX.ASM 33 : Register in operand not in bank 0.  Ensure that bank bits are correct.

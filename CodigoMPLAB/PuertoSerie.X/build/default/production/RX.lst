@@ -1,4 +1,4 @@
-MPASM 5.66                            RX.ASM   6-14-2016  17:10:14         PAGE  1
+MPASM 5.66                            RX.ASM   6-15-2016  20:29:42         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 0008   0188           00031  CLRF   TRISD
 0009   1703           00032  BSF    STATUS,RP1      ;-----------------BANK3
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-MPASM 5.66                            RX.ASM   6-14-2016  17:10:14         PAGE  2
+MPASM 5.66                            RX.ASM   6-15-2016  20:29:42         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -103,7 +103,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0029   2???           00070     GOTO    POLL
                       00071 
 2FF4 3FFF             00072     END
-MPASM 5.66                            RX.ASM   6-14-2016  17:10:14         PAGE  3
+MPASM 5.66                            RX.ASM   6-15-2016  20:29:42         PAGE  3
 
 
 SYMBOL TABLE
@@ -162,7 +162,7 @@ BRG6                              00000006
 BRG7                              00000007
 BRG8                              00000000
 BRG9                              00000001
-MPASM 5.66                            RX.ASM   6-14-2016  17:10:14         PAGE  4
+MPASM 5.66                            RX.ASM   6-15-2016  20:29:42         PAGE  4
 
 
 SYMBOL TABLE
@@ -221,7 +221,7 @@ CHS0                              00000002
 CHS1                              00000003
 CHS2                              00000004
 CHS3                              00000005
-MPASM 5.66                            RX.ASM   6-14-2016  17:10:14         PAGE  5
+MPASM 5.66                            RX.ASM   6-15-2016  20:29:42         PAGE  5
 
 
 SYMBOL TABLE
@@ -280,7 +280,7 @@ INDF                              00000000
 INICIO                            00000001
 INTCON                            0000000B
 INTE                              00000004
-MPASM 5.66                            RX.ASM   6-14-2016  17:10:14         PAGE  6
+MPASM 5.66                            RX.ASM   6-15-2016  20:29:42         PAGE  6
 
 
 SYMBOL TABLE
@@ -339,7 +339,7 @@ P1M0                              00000006
 P1M1                              00000007
 PCL                               00000002
 PCLATH                            0000000A
-MPASM 5.66                            RX.ASM   6-14-2016  17:10:14         PAGE  7
+MPASM 5.66                            RX.ASM   6-15-2016  20:29:42         PAGE  7
 
 
 SYMBOL TABLE
@@ -398,7 +398,7 @@ RB5                               00000005
 RB6                               00000006
 RB7                               00000007
 RBIE                              00000003
-MPASM 5.66                            RX.ASM   6-14-2016  17:10:14         PAGE  8
+MPASM 5.66                            RX.ASM   6-15-2016  20:29:42         PAGE  8
 
 
 SYMBOL TABLE
@@ -457,7 +457,7 @@ SR0                               00000006
 SR1                               00000007
 SRCON                             00000185
 SREN                              00000005
-MPASM 5.66                            RX.ASM   6-14-2016  17:10:14         PAGE  9
+MPASM 5.66                            RX.ASM   6-15-2016  20:29:42         PAGE  9
 
 
 SYMBOL TABLE
@@ -516,7 +516,7 @@ TMR1ON                            00000000
 TMR2                              00000011
 TMR2IE                            00000001
 TMR2IF                            00000001
-MPASM 5.66                            RX.ASM   6-14-2016  17:10:14         PAGE 10
+MPASM 5.66                            RX.ASM   6-15-2016  20:29:42         PAGE 10
 
 
 SYMBOL TABLE
@@ -575,7 +575,7 @@ TUN2                              00000002
 TUN3                              00000003
 TUN4                              00000004
 TX8_9                             00000006
-MPASM 5.66                            RX.ASM   6-14-2016  17:10:14         PAGE 11
+MPASM 5.66                            RX.ASM   6-15-2016  20:29:42         PAGE 11
 
 
 SYMBOL TABLE
@@ -634,7 +634,7 @@ _BOREN_OFF                        00003CFF
 _BOREN_ON                         00003FFF
 _BOREN_SBODEN                     00003DFF
 _BOR_NSLEEP                       00003EFF
-MPASM 5.66                            RX.ASM   6-14-2016  17:10:14         PAGE 12
+MPASM 5.66                            RX.ASM   6-15-2016  20:29:42         PAGE 12
 
 
 SYMBOL TABLE
@@ -693,7 +693,7 @@ _WRT_1FOURTH                      00003BFF
 _WRT_256                          00003DFF
 _WRT_HALF                         000039FF
 _WRT_OFF                          00003FFF
-MPASM 5.66                            RX.ASM   6-14-2016  17:10:14         PAGE 13
+MPASM 5.66                            RX.ASM   6-15-2016  20:29:42         PAGE 13
 
 
 SYMBOL TABLE
